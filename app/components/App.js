@@ -15,23 +15,19 @@ export default React.createClass({
           <li><Link to="/pets">Pets</Link></li>
           <li><Link to="/stores">Stores</Link></li>
         </ul>
+        {this.props.children}
       </div>
     )
   }
 })
 
-// angular comparison
-// export default function( ngModule ) {
-// 	ngModule.directive( 'appComponent', function(){
-// 		return {
-// 			replace: true,
-// 			restrict: 'E',
-// 			template: '
-//         <h1> React Router </h1>
-//         <nav>
-//           <a href="#/pets"> Pets </a>
-//           <a href="#/stores"> Stores </a>
-//         </nav> '
-// 		};
-// 	});
-// }
+// Now our user interface looks something like this
+// // at /pets
+// <App>
+//   <Pets />
+// </App>
+//
+// // at /stores
+// <App>
+//   <Stores/>
+// </App>
