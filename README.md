@@ -124,4 +124,5 @@ ignore /*
 
 #Steps to run react Branch:
 
-## one
+## one   : initial setup
+## two   : adding simple routes

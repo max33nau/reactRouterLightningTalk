@@ -2,43 +2,42 @@ import React from 'react'
 import { render } from 'react-dom'
 import {Router, Route, hashHistory} from 'react-router' // uses es6 transpiler
 
-// angular comparison
-/* import angular from 'angular' ;
-import angularRoute from 'angular-route'; */
+// Currently this doesn't do anything except create our initial router setup
+// render((
+//   <Router history={hashHistory}>
+//     <Route path='/' component={App}/>
+//   </Router >
+// ), document.getElementById('myApp'))
 
-/* as we know angular apps building blocks are directives,
-directive with a view are called components, we can interact
-components to other components within our app by giving the input
-and output properties (controllers/$scope) */
+import Pets from './components/Pets'
+import Stores from './components/Stores'
 
-/* how is react different, react using components where data is only
-passed between the two using "props". Props are values specified in a
-HTML0like XML syntax call JSX for representing the DOM components. The way
-react manipulates the DOM is when a component receives a state change, it create
-a virtual DOM which acts as a in-meory rpepresentation of what the browser is showing.
-Then it creates a new version of the virtual DOM with the state changes and compares i
-the original and only makes the minimal changes required when re-rendering itself. */
-
-// React Router is a component
-
-// render(<Router/>, document.getElementById('myApp')) this will do nothing though because
-// we have to configure it
-
-// angular comparison
-/* const app = angular.module('myApp', [angularRoute]); */
-
-
-// So instead of using a App as our top component we will be using a Router
 render((
-  <Router history={hashHistory}> // hashHistory manages the routing history with the hash portion of the url
-    <Route path='/' component={App}/> // App component has not been defined yet
+  <Router history={hashHistory}>
+    <Route path='/' component={myApp}/>
+    <Route path='/pets' component={Pets}/>
+    <Route path='/stores' component={Stores}/>
   </Router >
 ), document.getElementById('myApp'))
 
+
 // angular comparsion
+
+// import pets from './components/Pets'
+// import stores from './components/Stores'
+
+// pets(app);
+// stores(app);
+
 // app.config(['$routeProvider' function($routeProvider) {
 //   $routeProvider
 //     .when('/', {
 //       template: '<myApp />'
+//     });
+//     .when('/pets', {
+//       template: '<pets />
+//     });
+//     .when('/stores', {
+//       template: '<stores />
 //     });
 //   }]);
