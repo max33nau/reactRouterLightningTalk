@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/max33nau/reactRouterLightningTalk#readme",
   "dependencies": {
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "react-router": "^2.0.0"
   },
   "devDependencies": {

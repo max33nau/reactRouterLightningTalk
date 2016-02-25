@@ -22,7 +22,7 @@
   npm install react-router --save
 
 #Install dev-dependencies, we will be using es6 in this walk through so make sure you get the babel loader and presets
-  npm install webpack html-webpack-plugin babel-core babel-loader babel-preset-es2015 css-loader html-loader path style-loader webpack-dev-server  --save-dev
+  npm install webpack html-webpack-plugin babel-core babel-loader babel-preset-es2015 css-loader html-loader path style-loader webpack-dev-server babel-preset-react   --save-dev
 
 #Create webpack config file
   touch webpack.config.js
@@ -55,9 +55,10 @@
             template: './index.html'
           })
     ],
-    /* loaders for our app.js allowing us to bundle html, css, and js files that we imported in our app.js, notice we use the babel-preset-es2015 in our query to allow us to use es6    */
+    /* loaders for our app.js allowing us to bundle html, css, and js files that we imported in our app.js, notice we use the babel-preset-es2015 and babel-preset-react in our query to allow us to use es6 with react    */
     module: {
       loaders: [
+
         {
           test: /\.css$/,
           loader:'style!css'
@@ -67,7 +68,7 @@
           exclude: /node_modules/,
           loader: 'babel',
           query: {
-            presets: ['es2015']
+            presets: ['react', 'es2015']
           }
         },
         {
@@ -92,9 +93,25 @@ ignore /*
     "start": "webpack-dev-server --inline --hot",
     "build": "webpack"
 
-  the --inline --hot on the webpack-dev-server will automatically change when we make changes in our app directory so we won't have to continuously start the server over whenever we make a change.
+  the --inline --hot on the webpack-dev-server will automatically change when we make changes in our app directory so we won't have to continuously start the server over whenever we make a change. When running webpack-dev-server by typing npm start go to localhost://8080 to see the results of your app.
 
 #Check status
+  lets add some content too our index.html in app so we can see some results when we test so add this to our index.html
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title> React Router App Tutorial </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
+    <body>
+      <div>
+        hello world
+      </div>
+    </body>
+  </html>
+
   first lets see if our webpack is bundling up our files so in the terminal type (still in the app directory):
 
     npm run build
@@ -103,4 +120,8 @@ ignore /*
 
   now if you look in our server/public folder there should be a file called bundle.js and index.html, don't worry about the contents in bundle.js, just know that it is webpack bundling our app.js in the app directory
 
-#perfect if you have made it this far it is time to start our react router tutorial
+#perfect if you have made it this far it is time to start our react router tutorial, if you have cloned this repo please checkout to the branch called one
+
+#Steps to run react Branch:
+
+## one
