@@ -15,6 +15,7 @@ module.exports = {
   /* loaders for our app.js allowing us to bundle html, css, and js files that we imported in our app.js, notice we use the babel-preset-es2015 in our query to allow us to use es6    */
   module: {
     loaders: [
+
       {
         test: /\.css$/,
         loader:'style!css'
@@ -24,7 +25,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          presets: ['es2015']
+          presets: ['react', 'es2015']
         }
       },
       {
