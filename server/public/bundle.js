@@ -54,51 +54,51 @@
 
 	var _reactRouter = __webpack_require__(159);
 
+	var _Pets = __webpack_require__(216);
+
+	var _Pets2 = _interopRequireDefault(_Pets);
+
+	var _Stores = __webpack_require__(217);
+
+	var _Stores2 = _interopRequireDefault(_Stores);
+
+	var _App = __webpack_require__(218);
+
+	var _App2 = _interopRequireDefault(_App);
+
+	var _Type = __webpack_require__(220);
+
+	var _Type2 = _interopRequireDefault(_Type);
+
+	var _Home = __webpack_require__(221);
+
+	var _Home2 = _interopRequireDefault(_Home);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// uses es6 transpiler
-
-	// angular comparison
-	/* import angular from 'angular' ;
-	import angularRoute from 'angular-route'; */
-
-	/* as we know angular apps building blocks are directives,
-	directive with a view are called components, we can interact
-	components to other components within our app by giving the input
-	and output properties (controllers/$scope) */
-
-	/* how is react different, react using components where data is only
-	passed between the two using "props". Props are values specified in a
-	HTML0like XML syntax call JSX for representing the DOM components. The way
-	react manipulates the DOM is when a component receives a state change, it create
-	a virtual DOM which acts as a in-meory rpepresentation of what the browser is showing.
-	Then it creates a new version of the virtual DOM with the state changes and compares i
-	the original and only makes the minimal changes required when re-rendering itself. */
-
-	// React Router is a component
-
-	// render(<Router/>, document.getElementById('myApp')) this will do nothing though because
-	// we have to configure it
-
-	// angular comparison
-	/* const app = angular.module('myApp', [angularRoute]); */
-
-	// So instead of using a App as our top component we will be using a Router
+	/* Right now if we go to localhost://8080/#/ there is just nothing so lets add a home page using
+	the IndexRoute component react router provides */
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
-	  ' // hashHistory manages the routing history with the hash portion of the url',
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: App }),
-	  ' // App component has not been defined yet'
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _App2.default },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { path: '/pets', component: _Pets2.default },
+	      _react2.default.createElement(_reactRouter.Route, { path: '/pets/:type', component: _Type2.default })
+	    ),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/stores', component: _Stores2.default })
+	  )
 	), document.getElementById('myApp'));
 
-	// angular comparsion
-	// app.config(['$routeProvider' function($routeProvider) {
-	//   $routeProvider
-	//     .when('/', {
-	//       template: '<myApp />'
-	//     });
-	//   }]);
+	/* IndexRoute basically acts the the .otherwise() in the angular $routeProvider kind of,
+	it is rendered if none of the children urls have a match in App or if it matches its parents
+	url perfectly it will be rendered which in this case is '/' kind of think of it as a server looking
+	for index.html, the same is going on here if the parents url is matched it will look for IndexRoute */
+	// uses es6 transpiler
 
 /***/ },
 /* 1 */
@@ -24725,6 +24725,255 @@
 
 	exports['default'] = _createRouterHistory2['default'](_historyLibCreateHashHistory2['default']);
 	module.exports = exports['default'];
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Pets',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        ' Pets '
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          ' ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/pets/monkey' },
+	            ' Monkey '
+	          ),
+	          ' '
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          ' ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/pets/dog' },
+	            ' Dog '
+	          ),
+	          ' '
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          ' ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/pets/hippo' },
+	            ' Hippo '
+	          ),
+	          ' '
+	        )
+	      ),
+	      this.props.children
+	    );
+	  }
+	});
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Stores',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      ' Stores '
+	    );
+	  }
+	});
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _reactRouter = __webpack_require__(159);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavLink = __webpack_require__(219);
+
+	var _NavLink2 = _interopRequireDefault(_NavLink);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'App',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'React Router'
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { role: 'nav' },
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            _NavLink2.default,
+	            { to: '/pets' },
+	            'Pets'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            _NavLink2.default,
+	            { to: '/stores' },
+	            'Stores'
+	          )
+	        )
+	      ),
+	      this.props.children
+	    );
+	  }
+	});
+
+	//<li><NavLink to="/">Home</NavLink></li>
+	// always active because '/' is our parent url use index link which says on active on index
+	//<li><IndexLink to="/" activeStyle={{ color: 'red' }}>Home</IndexLink></li>
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'NavLink',
+	  render: function render() {
+	    return _react2.default.createElement(_reactRouter.Link, _extends({}, this.props, { activeStyle: { color: 'red' } }));
+	  }
+	});
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Type',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h2',
+	        null,
+	        ' ',
+	        this.props.params.type,
+	        ' '
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _react2.default.createClass({
+	  displayName: 'Home',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      ' Home Page '
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);
