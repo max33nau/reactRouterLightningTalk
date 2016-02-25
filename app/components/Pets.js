@@ -11,10 +11,8 @@ export default React.createClass({
           <li> <Link to='/pets/dog'> Dog </Link> </li>
           <li> <Link to='/pets/hippo'> Hippo </Link> </li>
         </ul>
-
+       {this.props.children}
       </div>
     )
   }
 })
-
-//  {this.props.children}

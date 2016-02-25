@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { IndexLink } from 'react-router'
 import React from 'react'
 import NavLink from './NavLink'
 
@@ -16,3 +16,7 @@ export default React.createClass({
     )
   }
 })
+
+//<li><NavLink to="/">Home</NavLink></li>
+// always active because '/' is our parent url use index link which says on active on index
+//<li><IndexLink to="/" activeStyle={{ color: 'red' }}>Home</IndexLink></li>

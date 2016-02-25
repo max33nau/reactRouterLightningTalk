@@ -131,3 +131,4 @@ ignore /*
 ## five : looking at the link component
 ## six : adds a NavLink component
 ## seven : dealing with params
+## eight : creating a home page
