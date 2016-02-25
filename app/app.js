@@ -9,6 +9,11 @@ import {Router, Route, hashHistory} from 'react-router' // uses es6 transpiler
 //   </Router >
 // ), document.getElementById('myApp'))
 
+/* Lets add some components and create some paths so we can show where we are headed
+ We will create two components called Pets and Stores, react uses capitalization for
+ components so it won't get confused with HTML content, we will also set our paths to
+ be  /pets and /stores*/
+
 import Pets from './components/Pets'
 import Stores from './components/Stores'
 
@@ -20,6 +25,8 @@ render((
   </Router >
 ), document.getElementById('myApp'))
 
+// Now if we go to browser we will see stores and pets showing up on the screen when
+// we go to those urls
 
 // angular comparsion
 

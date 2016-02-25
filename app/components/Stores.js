@@ -1,5 +1,7 @@
 import React from 'react'
 
+// creates our custom component for Stores
+
 export default React.createClass({
   render() {
     return <div> Stores </div>

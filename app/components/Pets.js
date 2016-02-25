@@ -1,5 +1,7 @@
 import React from 'react'
 
+// creates our custom component for Pets
+
 export default React.createClass({
   render() {
     return <div> Pets </div>
