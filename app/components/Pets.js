@@ -1,20 +1,20 @@
 import React from 'react'
-
-// creates our custom component for Pets
+import {Link} from 'react-router'
 
 export default React.createClass({
   render() {
-    return <div> Pets </div>
+    return (
+      <div>
+        <h3> Pets </h3>
+        <ul>
+          <li> <Link to='/pets/monkey'> Monkey </Link> </li>
+          <li> <Link to='/pets/dog'> Dog </Link> </li>
+          <li> <Link to='/pets/hippo'> Hippo </Link> </li>
+        </ul>
+
+      </div>
+    )
   }
 })
 
-// angular comparison
-// export default function( ngModule ) {
-// 	ngModule.directive( 'pets', function(){
-// 		return {
-// 			replace: true,
-// 			restrict: 'E',
-// 			template: '<div> pets </div> '
-// 		};
-// 	});
-// }
+//  {this.props.children}
